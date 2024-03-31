@@ -155,7 +155,7 @@ def get_devices(handler):
             'manufacturer': _getprop(id, 'ro.product.manufacturer', 'unknown'),
             'model': _getprop(id, 'ro.product.model', 'unknown'),
             'sdk': _getprop(id, 'ro.build.version.sdk', 'unknown'),
-            'network': _getnetwork(id),
+            # 'network': _getnetwork(id),
             'battery': _getbattery(id),
             'screen': _getscreen(id)
         })
@@ -192,7 +192,7 @@ def get_info(handler):
         'manufacturer': _getprop(id, 'ro.product.manufacturer', 'unknown'),
         'model': _getprop(id, 'ro.product.model', 'unknown'),
         'sdk': _getprop(id, 'ro.build.version.sdk', 'unknown'),
-        'network': _getnetwork(device),
+        # 'network': _getnetwork(device),
         'battery': _getbattery(device),
         'screen': _getscreen(device)
     }
