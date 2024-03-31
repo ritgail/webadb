@@ -351,9 +351,10 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
                                     content[0]['battery']['health'] = content[0]['battery']['health'].decode('utf-8')
 
                                     # Screen
-                                    content[0]['screen']['width'] = content[0]['screen']['width'].decode('utf-8')
-                                    content[0]['screen']['height'] = content[0]['screen']['height'].decode('utf-8')
-                                    content[0]['screen']['orientation'] = content[0]['screen']['orientation'].decode('utf-8')
+                                    if isinstance(content[0]['screen']['width'], bytes):
+                                        content[0]['screen']['width'] = content[0]['screen']['width'].decode('utf-8')
+                                        content[0]['screen']['height'] = content[0]['screen']['height'].decode('utf-8')
+                                        content[0]['screen']['orientation'] = content[0]['screen']['orientation'].decode('utf-8')
 
                                     self.wfile.write(json.dumps(content).encode('utf-8'))
                                 else:
